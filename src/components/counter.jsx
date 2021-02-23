@@ -5,6 +5,7 @@ import reactDom from "react-dom";
 class Counter extends Component {
   state = {
     count: 0,
+    tags: ["1", "2", "3"],
   };
   style = {
     fontSize: "30px",
@@ -22,6 +23,11 @@ class Counter extends Component {
         <button style={{ color: "white" }} className="btn btn-secondary btn-sm">
           Increment
         </button>
+        <ul>
+          {this.state.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
       </div>
     );
   }
