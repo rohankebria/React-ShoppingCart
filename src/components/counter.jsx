@@ -7,40 +7,25 @@ class Counter extends Component {
     count: 0,
     tags: ["1", "2", "3"],
   };
-  style = {
-    fontSize: "30px",
-    fontWeight: "bold",
-    fontFamily: "Ariel",
-    color: "purple",
-    margin: "15px",
-  };
   render() {
     return (
       <div>
-        <span style={this.style} className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button style={{ color: "white" }} className="btn btn-secondary btn-sm">
-          Increment
-        </button>
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        {this.state.tags.length === 0 && "please create some tags"}
+        {this.renderTags()}
       </div>
     );
   }
 
-  formatCount() {
-    const { count } = this.state;
-    //return count === 0 ? "Zero" : count;
-    return count === 0 ? <h1>Zero</h1> : count;
-  }
-  getBadgeClasses() {
-    let classes = "btn btn-sm ";
-    classes += this.state.count === 0 ? "btn-warning" : "btn-primary";
-    return classes;
+  renderTags() {
+    return this.state.tags.length === 0 ? (
+      <p>No tags Available.</p>
+    ) : (
+      <ul>
+        {this.state.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
   }
 }
 
