@@ -57,6 +57,7 @@ class Counter extends Component {
   } */
 
   handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
     console.log("Button Clicked", this.state.count);
   };
 }
