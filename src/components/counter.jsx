@@ -26,7 +26,10 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrement}
+          //  onClick={this.handleIncrement}
+          onClick={() => {
+            this.handleIncrement({ id: 1 });
+          }}
           style={{ color: "white" }}
           className="btn btn-secondary btn-sm"
         >
@@ -56,9 +59,14 @@ class Counter extends Component {
     console.log("Button Clicked" + this.state.count);
   } */
 
-  handleIncrement = () => {
+  /*handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
     console.log("Button Clicked", this.state.count);
+  }; */
+
+  handleIncrement = (product) => {
+    this.setState({ count: this.state.count + 1 });
+    console.log("Button Clicked", product);
   };
 }
 
