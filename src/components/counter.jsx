@@ -9,8 +9,9 @@ class Counter extends Component {
     this.handleIncrement = this.handleIncrement.bind(this);
   }*/
   state = {
-    count: 0,
-    tags: ["1", "2", "3"],
+    //count: 0,
+    count: this.props.value,
+    //tags: ["1", "2", "3"],
   };
   style = {
     fontSize: "30px",
@@ -20,15 +21,19 @@ class Counter extends Component {
     margin: "15px",
   };
   render() {
+    //console.log("props:", this.props);
+    //console.log("children:", this.props);
     return (
       <div>
+        <h4>counter# {this.props.id}</h4>
+        {this.props.children}
         <span style={this.style} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
         <button
           //  onClick={this.handleIncrement}
           onClick={() => {
-            this.handleIncrement({ id: 1 });
+            this.handleIncrement({ id: this.props.id });
           }}
           style={{ color: "white" }}
           className="btn btn-secondary btn-sm"
